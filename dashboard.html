@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Portal do condomínio</title>
+  <link rel="stylesheet" href="static/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span>C</span> Portal do condomínio</a>
+    <button class="logout" id="logout" type="button">Sair</button>
+  </header>
+
+  <main class="dashboard">
+    <section class="welcome">
+      <p class="eyebrow">Área do morador</p>
+      <h1>Olá, administrador.</h1>
+      <p>Acompanhe as principais informações do seu condomínio.</p>
+    </section>
+
+    <section class="summary" aria-label="Resumo do condomínio">
+      <article class="summary-card accent-blue"><span>Próxima assembleia</span><strong>18 JUN</strong><small>Salão de festas, 19h</small></article>
+      <article class="summary-card accent-yellow"><span>Encomendas</span><strong>03</strong><small>Aguardando retirada</small></article>
+      <article class="summary-card accent-green"><span>Boletos em aberto</span><strong>00</strong><small>Situação regular</small></article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading"><h2>Comunicados recentes</h2><a href="#comunicados">Ver todos</a></div>
+        <div class="notice"><span class="notice-dot"></span><div><strong>Manutenção da área comum</strong><p>A piscina ficará fechada nesta quarta-feira para limpeza.</p><time>Hoje, 09:40</time></div></div>
+        <div class="notice"><span class="notice-dot"></span><div><strong>Assembleia ordinária</strong><p>A pauta já está disponível para consulta dos moradores.</p><time>Ontem, 16:20</time></div></div>
+      </article>
+      <article class="panel quick-panel">
+        <h2>Acesso rápido</h2>
+        <a href="#reservas">Reservar área comum <span>→</span></a>
+        <a href="#financeiro">Consultar financeiro <span>→</span></a>
+        <a href="#ocorrencias">Registrar ocorrência <span>→</span></a>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    if (sessionStorage.getItem("condServiceAuthenticated") !== "true") {
+      window.location.href = "index.html";
+    }
+
+    document.getElementById("logout").addEventListener("click", function () {
+      sessionStorage.removeItem("condServiceAuthenticated");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
